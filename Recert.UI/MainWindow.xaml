@@ -1,0 +1,93 @@
+﻿<Window x:Class="Recert.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Recert.UI"
+        mc:Ignorable="d"
+		xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="MainWindow" Height="711" Width="826">
+	<Grid Margin="0,0,0,5">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="226*"/>
+			<ColumnDefinition Width="223*"/>
+			<ColumnDefinition Width="369*"/>
+		</Grid.ColumnDefinitions>
+		<Label x:Name="householdLabel" Content="Household Information" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="295" FontSize="14" FontWeight="Bold" Height="29" Grid.ColumnSpan="2"/>
+		<Label x:Name="householdNameLabel" Content="Household Name:" Margin="10,50,5,0" VerticalAlignment="Top" Height="26"/>
+		<TextBox x:Name="householdNameField" Height="23" Margin="12,53,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" TextChanged="HouseholdNameField_TextChanged"/>
+		<Label x:Name="householdStreetNumberLabel" Content="Street Number:" Margin="10,78,5,0" VerticalAlignment="Top" Height="26"/>
+		<TextBox x:Name="householdStreetNumberField" Height="23" Margin="12,81,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" TextChanged="HouseholdStreetNumberField_TextChanged"/>
+		<Label x:Name="householdStreetNameLabel" Content="Street Name:" Margin="10,106,5,0" VerticalAlignment="Top" Height="26"/>
+		<TextBox x:Name="householdStreetNameField" Height="23" Margin="12,109,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" TextChanged="HouseholdStreetNameField_TextChanged"/>
+		<Label x:Name="householdApartmentLabel" Content="Apartment Number:" Margin="10,134,5,0" VerticalAlignment="Top" Height="26"/>
+		<TextBox x:Name="householdhouseholdApartmentField" Height="23" Margin="12,137,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" TextChanged="HouseholdhouseholdApartmentField_TextChanged"/>
+		<Label x:Name="householdCityLabel" Content="City:" Margin="10,162,5,0" VerticalAlignment="Top" Height="26"/>
+		<TextBox x:Name="householdhouseholdCityField" Height="23" Margin="12,165,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" TextChanged="HouseholdhouseholdCityField_TextChanged"/>
+		<Label x:Name="householdStateLabel" Content="State:" Margin="10,190,5,0" VerticalAlignment="Top" Height="26"/>
+		<Label x:Name="householdCountryLabel" Content="Country:" Margin="10,218,5,0" VerticalAlignment="Top" Height="26"/>
+		<TextBox x:Name="householdhouseholdCountryField" Height="23" Margin="12,221,12,0" TextWrapping="Wrap" Text="United States" VerticalAlignment="Top" Grid.Column="1" TextChanged="HouseholdhouseholdCountryField_TextChanged"/>
+		<Label x:Name="householdZIPLabel" Content="ZIP Code:" Margin="10,246,5,0" VerticalAlignment="Top" Height="26"/>
+		<TextBox x:Name="householdZIPField" Height="23" Margin="12,249,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" TextChanged="HouseholdZIPField_TextChanged"/>
+
+		<Button x:Name="generateReceipt" Content="Generate Receipt" Margin="22,642,29,0" VerticalAlignment="Top" Height="23" Grid.Column="2"/>
+		<ListBox x:Name="peopleList" Height="163" Margin="22,81,29,0" VerticalAlignment="Top" Grid.Column="2" SelectionChanged="PeopleList_SelectionChanged">
+		</ListBox>
+		<Label x:Name="peopleLabels" Content="People:" Margin="18,50,248,0" VerticalAlignment="Top" Height="26" Grid.Column="2"/>
+		<Grid x:Name="PersonGrid" HorizontalAlignment="Left" Height="285" Margin="10,315,0,0" VerticalAlignment="Top" Width="763" Grid.ColumnSpan="3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="98*"/>
+				<ColumnDefinition Width="111*"/>
+				<ColumnDefinition Width="230*"/>
+				<ColumnDefinition Width="324*"/>
+			</Grid.ColumnDefinitions>
+			<Label x:Name="firstNameLabel" Content="First Name:" Margin="0,31,8,0" VerticalAlignment="Top" Height="26" Grid.ColumnSpan="2"/>
+			<TextBox x:Name="firstNameField" Height="23" Margin="12,34,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="2" TextChanged="FirstNameField_TextChanged"/>
+			<Label x:Name="lastNameLabel" Content="Second Name:" Margin="0,59,8,0" VerticalAlignment="Top" Height="26" Grid.ColumnSpan="2"/>
+			<TextBox x:Name="lastNameField" Height="23" Margin="12,62,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="2" TextChanged="LastNameField_TextChanged"/>
+			<DatePicker x:Name="BirthDatePicker" Margin="12,90,12,0" VerticalAlignment="Top" Grid.Column="2" SelectedDate="{x:Static sys:DateTime.Now}" Height="24" SelectedDateChanged="BirthDatePicker_SelectedDateChanged">
+				<DatePicker.Resources>
+					<Style TargetType="DatePickerTextBox">
+						<Setter Property="IsReadOnly" Value="True"/>
+					</Style>
+				</DatePicker.Resources>
+			</DatePicker>
+			<Label x:Name="birthDateLabel" Content="Date of Birth:" Margin="0,88,8,0" VerticalAlignment="Top" Height="26" Grid.ColumnSpan="2"/>
+			<CheckBox x:Name="graduatedHighSchoolCheckBox" Content="Graduated High School" Margin="176,62,2,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="GraduatedHighSchoolCheckBox_Click"/>
+			<CheckBox x:Name="fullTumeStudentCheckBox" Content="Full Time Student" Margin="176,82,2,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="FullTumeStudentCheckBox_Click"/>
+			<CheckBox x:Name="employedCheckBox" Content="Employed" Margin="176,142,2,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="EmployedCheckBox_Click"/>
+			<CheckBox x:Name="selfEmployedCheckBox" Content="Self-Employed" Margin="176,162,2,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="SelfEmployedCheckBox_Click"/>
+			<Label x:Name="educationLabel" Content="Education:" Margin="171,31,81,0" VerticalAlignment="Top" Height="26" Grid.Column="3"/>
+			<Label x:Name="employmentLabel" Content="Employment:" Margin="171,109,68,0" VerticalAlignment="Top" Height="26" Grid.Column="3"/>
+			<CheckBox x:Name="incomeCheckBox" Content="Receives Income" Margin="24,62,158,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="IncomeCheckBox_Click"/>
+			<Label x:Name="incomeLabel" Content="Income:" Margin="19,31,180,0" VerticalAlignment="Top" Height="26" Grid.Column="3"/>
+			<CheckBox x:Name="ssCheckBox" Content="SS" Margin="24,82,158,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="SsCheckBox_Click"/>
+			<CheckBox x:Name="ssiCheckBox" Content="SSI" Margin="24,102,158,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="SsiCheckBox_Click"/>
+			<CheckBox x:Name="sspCheckBox" Content="SSP" Margin="24,122,158,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="SspCheckBox_Click"/>
+			<CheckBox x:Name="unemploymentCheckBox" Content="Unemployment" Margin="24,142,158,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="UnemploymentCheckBox_Click"/>
+			<CheckBox x:Name="informalAlimonyCheckBox" Content="Informal Alimony" Margin="24,162,158,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="InformalAlimonyCheckBox_Click"/>
+			<CheckBox x:Name="courtOrderAlimonyCheckBox" Content="Court Issued Alimony" Margin="24,182,158,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="CourtOrderAlimonyCheckBox_Click"/>
+			<CheckBox x:Name="contributionsCheckBox" Content="Contributions" Margin="24,202,158,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="ContributionsCheckBox_Click"/>
+			<CheckBox x:Name="debitCardCheckBox" Content="Direct Debit Card" Margin="24,222,158,0" VerticalAlignment="Top" Grid.Column="3" Height="15" Click="DebitCardCheckBox_Click"/>
+			<Label x:Name="accountsLabel" Content="Accounts:" Margin="0,125,8,0" VerticalAlignment="Top" Height="26" Grid.ColumnSpan="2"/>
+			<ListBox x:Name="accountsList" Margin="7,156,12,48" Grid.ColumnSpan="3"/>
+			<Button x:Name="addButton" Content="Add" Margin="9,242,121,0" VerticalAlignment="Top" Height="23" Grid.Column="2" Click="AddButton_Click"/>
+			<Button x:Name="removeButton" Content="Remove" Margin="118,242,12,0" VerticalAlignment="Top" Height="23" Grid.Column="2" Click="RemoveButton_Click"/>
+			<ComboBox x:Name="accountTypeComboBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="8,242,0,0" VerticalAlignment="Top" Width="201" SelectedIndex="0">
+				<ComboBoxItem>Regular Bank Account</ComboBoxItem>
+				<ComboBoxItem>Other</ComboBoxItem>
+			</ComboBox>
+			<ComboBox x:Name="lifeInsuranceComboBox" HorizontalAlignment="Left" Margin="176,242,0,0" VerticalAlignment="Top" Width="138" SelectedIndex="0" Grid.Column="3" SelectionChanged="LifeInsuranceComboBox_SelectionChanged">
+				<ComboBoxItem Content="Whole"/>
+				<ComboBoxItem Content="Term"/>
+			</ComboBox>
+			<Label x:Name="lifeInsuranceLabel" Content="Life Insurance:" Margin="21,242,218,0" VerticalAlignment="Top" Height="26" Grid.Column="3"/>
+		</Grid>
+		<Label x:Name="personLabel" Content="Persona Profile:" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" Width="116" FontSize="14" FontWeight="Bold" Height="29"/>
+		<Label x:Name="selectNameLabel" Content="(select name)" HorizontalAlignment="Left" Margin="119,315,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontWeight="Regular" Height="29"/>
+		<Button x:Name="addPersonButton" Content="Add" Margin="23,249,197,0" VerticalAlignment="Top" Height="23" Grid.Column="2" Click="AddPersonButton_Click"/>
+		<Button x:Name="removePersonButton" Content="Remove" Margin="177,249,29,0" VerticalAlignment="Top" Height="23" Grid.Column="2" Click="RemovePersonButton_Click"/>
+		<ComboBox x:Name="stateComboBox" HorizontalAlignment="Left" Margin="12,194,0,0" VerticalAlignment="Top" Width="199" SelectedIndex="0" Grid.Column="1" Height="22" SelectionChanged="StateComboBox_SelectionChanged">
+		</ComboBox>
+	</Grid>
+</Window>
