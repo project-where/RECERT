@@ -1,6 +1,9 @@
-﻿using Recert.IO;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
+using Recert.IO;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -125,7 +128,7 @@ namespace Recert.UI
 
                 // Employment
                 this.employedCheckBox.IsChecked = person.Employment.Employed;
-                this.employedCheckBox.IsChecked = person.Employment.SelfEmployed;
+                this.selfEmployedCheckBox.IsChecked = person.Employment.SelfEmployed;
 
                 // Life insurance
                 this.lifeInsuranceComboBox.SelectedIndex = (int)person.LifeInsurance;
@@ -184,7 +187,7 @@ namespace Recert.UI
         private void HouseholdhouseholdCountryField_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox box = sender as TextBox;
-            this.Household.Address.City = box.Text;
+            this.Household.Address.Country = box.Text;
         }
 
         private void HouseholdZIPField_TextChanged(object sender, TextChangedEventArgs e)
@@ -343,6 +346,91 @@ namespace Recert.UI
             {
                 p.BirthDate = (DateTime)picker.SelectedDate;
             }
+        }
+
+        private void NewItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Household = new Household();
+            DisplayObject(this.Household);
+        }
+
+        private void OpenMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Household household;
+            OpenFileDialog open = new OpenFileDialog();
+            open.Title = "Load household profile";
+            open.Filter = "Serialized JSON|*.json";
+            open.ShowDialog();
+            if (open.FileName != null && open.FileName != string.Empty)
+            {
+                using (StreamReader reader = new StreamReader(open.FileName))
+                {
+                    household = JsonConvert.DeserializeObject<Household>(reader.ReadToEnd());
+                }
+
+                this.DisplayObject(household);
+            }
+        }
+
+        public void DisplayObject(Household household)
+        {
+            this.householdNameField.Text = household.HouseholdName;
+            this.householdStreetNumberField.Text = household.Address.Number.ToString();
+            this.householdStreetNameField.Text = household.Address.Street;
+            this.householdhouseholdApartmentField.Text = household.Address.Apartment;
+            this.householdhouseholdCityField.Text = household.Address.City;
+            this.stateComboBox.SelectedIndex = (int)household.Address.State;
+            this.householdhouseholdCountryField.Text = household.Address.Country;
+            this.householdZIPField.Text = household.Address.ZipCode.ToString();
+
+            if(this.householdZIPField.Text == "0")
+            {
+                this.householdZIPField.Text = string.Empty;
+            }
+            if(this.householdStreetNumberField.Text == "0")
+            {
+                this.householdStreetNumberField.Text = string.Empty;
+            }
+
+            try
+            {
+                this.Household = household;
+                this.RefreshPeopleList();
+                this.RefreshAccountList();
+            }
+            catch { }
+        }
+
+        private void SaveMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.AddExtension = true;
+            saveDialog.DefaultExt = ".json";
+            saveDialog.Filter = "Serialized JSON|*.json";
+            saveDialog.ShowDialog();
+            if (saveDialog.FileName != null && saveDialog.FileName != string.Empty)
+            {
+                using (StreamWriter writer = new StreamWriter(saveDialog.FileName))
+                {
+                    writer.Write(JsonConvert.SerializeObject(this.Household, Formatting.Indented));
+                }
+            }
+        }
+
+
+        private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://proj-where.com/recert-py-1");
+        }
+
+        private void GitMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/project-where/Recert");
         }
     }
 }
