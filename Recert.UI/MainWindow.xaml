@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Recert.UI"
         mc:Ignorable="d"
 		xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        Title="MainWindow" Height="756" Width="826">
+        Title="Project [Where] | Recert Alpha 0.1.0" Height="756" Width="826">
 	<Grid Margin="0,0,0,5">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="226*"/>

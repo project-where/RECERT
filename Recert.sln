@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recert.IO", "Recert.IO\Rece
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recert.UI", "Recert.UI\Recert.UI.csproj", "{EE5A93FF-D25B-471B-B307-E7A6380CC532}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Recert.Installer", "Recert.Installer\Recert.Installer.vdproj", "{3E0E11F0-C426-4220-AD9C-8CC1F82590CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{EE5A93FF-D25B-471B-B307-E7A6380CC532}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE5A93FF-D25B-471B-B307-E7A6380CC532}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE5A93FF-D25B-471B-B307-E7A6380CC532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E0E11F0-C426-4220-AD9C-8CC1F82590CD}.Debug|Any CPU.ActiveCfg = Debug
+		{3E0E11F0-C426-4220-AD9C-8CC1F82590CD}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
