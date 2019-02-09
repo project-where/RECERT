@@ -30,7 +30,7 @@
 		<Label x:Name="householdZIPLabel" Content="ZIP Code:" Margin="10,281,5,0" VerticalAlignment="Top" Height="26"/>
 		<TextBox x:Name="householdZIPField" Height="23" Margin="12,284,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" TextChanged="HouseholdZIPField_TextChanged"/>
 
-		<Button x:Name="generateReceipt" Content="Generate Receipt" Margin="22,677,29,0" VerticalAlignment="Top" Height="23" Grid.Column="2" Click="GenerateReceipt_Click"/>
+		<Button x:Name="generateReceipt" Content="Generate Receipt" Margin="22,0,29,20" VerticalAlignment="Bottom" Height="23" Grid.Column="2" Click="GenerateReceipt_Click"/>
 		<ListBox x:Name="peopleList" Height="163" Margin="22,116,29,0" VerticalAlignment="Top" Grid.Column="2" SelectionChanged="PeopleList_SelectionChanged">
 		</ListBox>
 		<Label x:Name="peopleLabels" Content="People:" Margin="18,85,248,0" VerticalAlignment="Top" Height="26" Grid.Column="2"/>
@@ -90,7 +90,7 @@
 		<ComboBox x:Name="stateComboBox" HorizontalAlignment="Left" Margin="12,229,0,0" VerticalAlignment="Top" Width="199" SelectedIndex="0" Grid.Column="1" Height="22" SelectionChanged="StateComboBox_SelectionChanged">
 		</ComboBox>
 		<DockPanel/>
-		<Menu Margin="10,20,0,675" HorizontalAlignment="Left" Width="798" Grid.ColumnSpan="3">
+		<Menu Margin="10,20,0,0" HorizontalAlignment="Left" Width="798" Grid.ColumnSpan="3" Height="25" VerticalAlignment="Top">
 			<MenuItem Header="_File">
 				<MenuItem Name="NewMenuItem" Header="_New" Click="NewItem_Click"/>
 				<MenuItem Name="OpenMenuItem" Header="_Open" Click="OpenMenuItem_Click"/>
