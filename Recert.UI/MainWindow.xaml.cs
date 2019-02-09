@@ -432,5 +432,18 @@ namespace Recert.UI
         {
             System.Diagnostics.Process.Start("https://github.com/project-where/Recert");
         }
+
+        private void GenerateReceipt_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.peopleList.SelectedItem != null)
+            {
+                ReceiptDialog receipt = new ReceiptDialog(this.Household, (Person)this.peopleList.SelectedItem);
+                receipt.ShowDialog();
+            }
+            else
+            {
+                //MessageBox.Show("Please, select a name from the list before generating a receipt", "Select Name", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
     }
 }

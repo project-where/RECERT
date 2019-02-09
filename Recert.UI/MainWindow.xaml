@@ -30,7 +30,7 @@
 		<Label x:Name="householdZIPLabel" Content="ZIP Code:" Margin="10,281,5,0" VerticalAlignment="Top" Height="26"/>
 		<TextBox x:Name="householdZIPField" Height="23" Margin="12,284,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" TextChanged="HouseholdZIPField_TextChanged"/>
 
-		<Button x:Name="generateReceipt" Content="Generate Receipt" Margin="22,677,29,0" VerticalAlignment="Top" Height="23" Grid.Column="2"/>
+		<Button x:Name="generateReceipt" Content="Generate Receipt" Margin="22,677,29,0" VerticalAlignment="Top" Height="23" Grid.Column="2" Click="GenerateReceipt_Click"/>
 		<ListBox x:Name="peopleList" Height="163" Margin="22,116,29,0" VerticalAlignment="Top" Grid.Column="2" SelectionChanged="PeopleList_SelectionChanged">
 		</ListBox>
 		<Label x:Name="peopleLabels" Content="People:" Margin="18,85,248,0" VerticalAlignment="Top" Height="26" Grid.Column="2"/>
@@ -83,7 +83,7 @@
 			</ComboBox>
 			<Label x:Name="lifeInsuranceLabel" Content="Life Insurance:" Margin="21,242,218,0" VerticalAlignment="Top" Height="26" Grid.Column="3"/>
 		</Grid>
-		<Label x:Name="personLabel" Content="Persona Profile:" HorizontalAlignment="Left" Margin="10,350,0,0" VerticalAlignment="Top" Width="116" FontSize="14" FontWeight="Bold" Height="29"/>
+		<Label x:Name="personLabel" Content="Personal Profile:" HorizontalAlignment="Left" Margin="10,350,0,0" VerticalAlignment="Top" Width="116" FontSize="14" FontWeight="Bold" Height="29"/>
 		<Label x:Name="selectNameLabel" Content="(select name)" HorizontalAlignment="Left" Margin="119,350,0,0" VerticalAlignment="Top" Width="100" FontSize="14" FontWeight="Regular" Height="29"/>
 		<Button x:Name="addPersonButton" Content="Add" Margin="23,284,197,0" VerticalAlignment="Top" Height="23" Grid.Column="2" Click="AddPersonButton_Click"/>
 		<Button x:Name="removePersonButton" Content="Remove" Margin="177,284,29,0" VerticalAlignment="Top" Height="23" Grid.Column="2" Click="RemovePersonButton_Click"/>
