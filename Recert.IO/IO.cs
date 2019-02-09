@@ -66,6 +66,8 @@ namespace Recert.IO
         public AccountCollection Accounts { get; set; }
         public LifeInsuranceType LifeInsurance { get; set; }
 
+        public DocumentCollection Documents { get; set; }
+
         public Person()
         {
             this.FirstName = string.Empty;
@@ -76,6 +78,7 @@ namespace Recert.IO
             this.Employment = new Employment();
             this.Id = Guid.NewGuid();
             this.BirthDate = DateTime.Today;
+            this.Documents = new DocumentCollection();
         }
         #region Methods
         public int GetAge()
@@ -142,6 +145,54 @@ namespace Recert.IO
         public override string ToString()
         {
             return $"{this.Type.ToString()} - {this.Id}";
+        }
+    }
+
+    public class Document
+    {
+        public string Name { get; set; }
+        public string Comments { get; set; }
+        public Document()
+        {
+
+        }
+        public Document(string name)
+        {
+            this.Name = name;
+        }
+        public Document(string name, string comments)
+        {
+            this.Name = name;
+            this.Comments = comments;
+        }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
+    }
+
+    public class DocumentCollection
+    {
+        public List<Document> Documents { get; set; } = new List<Document>();
+        
+        public void RemoveByName(string name)
+        {
+            Document toDelete = null;
+            foreach (Document doc in this.Documents)
+            { if (doc.Name == name) { toDelete = doc; break; } }
+            if (toDelete != null)
+            { this.Documents.Remove(toDelete); }
+        }
+
+        public void AddDocument(Document doc)
+        {
+            this.Documents.Add(doc);
+        }
+
+        public void Sort()
+        {
+            this.Documents = this.Documents.OrderBy(o => o.Name).ToList();
         }
     }
 

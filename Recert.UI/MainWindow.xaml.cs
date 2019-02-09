@@ -223,6 +223,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Income.EmploymentIncome = (bool)box.IsChecked;
+            string documentName = "Proof of income";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void SsCheckBox_Click(object sender, RoutedEventArgs e)
@@ -230,6 +233,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Income.SS = (bool)box.IsChecked;
+            string documentName = "Social Security Card (SS)";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void SsiCheckBox_Click(object sender, RoutedEventArgs e)
@@ -237,6 +243,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Income.SSI = (bool)box.IsChecked;
+            string documentName = "Social Security Card (SSI)";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void SspCheckBox_Click(object sender, RoutedEventArgs e)
@@ -244,6 +253,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Income.SSP = (bool)box.IsChecked;
+            string documentName = "Social Security Card (SSP)";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void UnemploymentCheckBox_Click(object sender, RoutedEventArgs e)
@@ -251,6 +263,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Income.ReceivesUnemployment = (bool)box.IsChecked;
+            string documentName = "Proof of unemployment";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void InformalAlimonyCheckBox_Click(object sender, RoutedEventArgs e)
@@ -258,6 +273,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Income.ReceivesInformalAlimony = (bool)box.IsChecked;
+            string documentName = "Proof of informal alimony";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void CourtOrderAlimonyCheckBox_Click(object sender, RoutedEventArgs e)
@@ -265,6 +283,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Income.ReceivesCourtOrderedAlimony = (bool)box.IsChecked;
+            string documentName = "Proof of Court Order Alimony";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void ContributionsCheckBox_Click(object sender, RoutedEventArgs e)
@@ -272,6 +293,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Income.Contributions = (bool)box.IsChecked;
+            string documentName = "Proof of Contributions";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void DebitCardCheckBox_Click(object sender, RoutedEventArgs e)
@@ -279,6 +303,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Income.DirectDebitCard = (bool)box.IsChecked;
+            string documentName = "Debit Card";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void GraduatedHighSchoolCheckBox_Click(object sender, RoutedEventArgs e)
@@ -286,6 +313,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Education.GraduatedHighSchool = (bool)box.IsChecked;
+            string documentName = "High school transcript";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void FullTumeStudentCheckBox_Click(object sender, RoutedEventArgs e)
@@ -293,6 +323,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Education.FullTimeStudent = (bool)box.IsChecked;
+            string documentName = "Proof of enrollment";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void EmployedCheckBox_Click(object sender, RoutedEventArgs e)
@@ -300,6 +333,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Employment.Employed = (bool)box.IsChecked;
+            string documentName = "Proof of employment";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void SelfEmployedCheckBox_Click(object sender, RoutedEventArgs e)
@@ -307,6 +343,9 @@ namespace Recert.UI
             CheckBox box = sender as CheckBox;
             Person p = this.peopleList.SelectedItem as Person;
             p.Employment.SelfEmployed = (bool)box.IsChecked;
+            string documentName = "Proof of self-employment";
+            if ((bool)box.IsChecked) { p.Documents.AddDocument(new Document(documentName)); }
+            else { p.Documents.RemoveByName(documentName); }
         }
 
         private void LifeInsuranceComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -316,7 +355,14 @@ namespace Recert.UI
             if (p != null)
             {
                 p.LifeInsurance = (LifeInsuranceType)box.SelectedIndex;
+                string documentName = "Life insurance";
+                switch (p.LifeInsurance)
+                {
+                    case LifeInsuranceType.Whole: p.Documents.AddDocument(new Document(documentName)); break;
+                    case LifeInsuranceType.Term: p.Documents.RemoveByName(documentName); break;
+                }
             }
+            
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -326,16 +372,23 @@ namespace Recert.UI
             ac.Type = (AccountType)accountTypeComboBox.SelectedIndex;
             p.Accounts.Accounts.Add(ac);
             RefreshAccountList();
+            p.Documents.AddDocument(new Document($"Account statement for {ac.Type} {ac.Id}"));
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
             Person p = this.peopleList.SelectedItem as Person;
+            Account ac = null;
             if (this.accountsList.SelectedIndex != -1)
             {
                 p.Accounts.Accounts.RemoveAt(this.accountsList.SelectedIndex);
+                ac = this.accountsList.SelectedItem as Account;
             }
             RefreshAccountList();
+            if (ac != null)
+            {
+                p.Documents.RemoveByName($"Account statement for {ac.Type} {ac.Id}");
+            }
         }
 
         private void BirthDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -417,6 +470,11 @@ namespace Recert.UI
             }
         }
 
+        private void GenerateDocumentList(Person person, Household household)
+        {
+
+        }
+
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -437,6 +495,7 @@ namespace Recert.UI
         {
             if (this.peopleList.SelectedItem != null)
             {
+                GenerateDocumentList((Person)this.peopleList.SelectedItem, this.Household);
                 ReceiptDialog receipt = new ReceiptDialog(this.Household, (Person)this.peopleList.SelectedItem);
                 receipt.ShowDialog();
             }

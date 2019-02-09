@@ -57,7 +57,18 @@ namespace Recert.UI
             this.textBox.AppendText("\n");
 
             Announce("Document List");
-
+            this.person.Documents.Sort();
+            foreach (Document doc in this.person.Documents.Documents)
+            {
+                if (doc.Comments == null || doc.Comments == string.Empty)
+                {
+                    this.textBox.AppendText($"[ ]  {doc.ToString()}\n\n");
+                }
+                else
+                {
+                    this.textBox.AppendText($"[ ]  {doc.ToString()} | {doc.Comments}\n\n");
+                }
+            }
         }
 
         private void Announce(string message)
@@ -67,10 +78,6 @@ namespace Recert.UI
             this.textBox.AppendText(delimeter + "\n");
             this.textBox.AppendText(message.ToUpper() + "\n");
             this.textBox.AppendText(delimeter + "\n");
-            //string announcement = delimeter + "\n";
-            //announcement += message.ToUpper() + "\n";
-            //announcement += delimeter + "\n";
-            //this.textBox.AppendText(announcement);
         }
 
         private void CopyButton_Click(object sender, RoutedEventArgs e)
